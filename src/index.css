@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  /* Luxury Sports Car Mode Colors - Premium Gold & Deep Space Black Theme */
+  --bg: #030303;
+  --bg-subtle: #080808;
+  --text: #f0f0f0;
+  --text-h: #ffffff;
+  --border: #1a1a1a;
+  --accent: #e0c007;
+  --accent-glow: rgba(255, 215, 0, 0.2);
+  --accent-border: rgba(255, 215, 0, 0.3);
+  
+  /* Message Bubbles */
+  --message-me-bg: rgba(20, 20, 20, 0.6);
+  --message-me-text: #e0c007;
+  --message-me-border: rgba(255, 215, 0, 0.3);
+  --message-bot-bg: rgba(10, 10, 10, 0.6);
+  --message-bot-text: #cccccc;
+
+  /* Sidebar */
+  --sidebar-bg: rgba(5, 5, 5, 0.6);
+  --sidebar-text: #a5a5a5;
+  --sidebar-border: rgba(255, 255, 255, 0.05);
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.03);
+  --sidebar-active-bg: rgba(255, 215, 0, 0.05);
+
+  /* Utilities */
+  --code-bg: #1a1a1a;
+  --shadow: rgba(0, 0, 0, 0.8) 0 10px 15px -3px, rgba(0, 0, 0, 0.5) 0 4px 6px -2px;
+
+  /* Typography */
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.02em;
+  color-scheme: dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+.light {
+  /* Light Mode Colors */
+  --bg: #ffffff;
+  --bg-subtle: #f8fafc;
+  --text: #334155;
+  --text-h: #0f172a;
+  --border: #e2e8f0;
+  --accent: #6366f1;
+  --accent-bg: rgba(99, 102, 241, 0.1);
+  --accent-border: rgba(99, 102, 241, 0.3);
+  
+  /* Message Bubbles */
+  --message-me-bg: #6366f1;
+  --message-me-text: #ffffff;
+  --message-bot-bg: #f1f5f9;
+  --message-bot-text: #1e293b;
+
+  /* Sidebar */
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #334155;
+  --sidebar-border: #e2e8f0;
+  --sidebar-hover-bg: #f1f5f9;
+  --sidebar-active-bg: #f1f5f9;
+
+  /* Utilities */
+  --code-bg: #f4f3ec;
+  --shadow: rgba(0, 0, 0, 0.05) 0 4px 6px -1px, rgba(0, 0, 0, 0.02) 0 2px 4px -1px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not(.light) {
+    /* If user prefers light mode and we haven't forced .light, apply light theme */
+    /* Note: This is a bit tricky because :root is already dark. 
+       In a real app, we'd probably manage this via a state/class on the body.
+       For now, let's just ensure that if they prefer light, we can switch. */
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
